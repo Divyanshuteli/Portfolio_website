@@ -49,12 +49,15 @@
 <section id="contact">
   <h2 class="title">Contact <span>Me</span></h2>
 
-  <form class="contact-form">
-    <input type="text" placeholder="Your Name">
-    <input type="email" placeholder="Your Email">
-    <textarea placeholder="Your Message"></textarea>
-    <button class="btn">Send Message</button>
+  <form action="https://formsubmit.co/divyanshuteli@gmail.com" method="POST">
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Your Email" required>
+  <textarea name="message" placeholder="Your Message" required></textarea>
+
+  <input type="hidden" name="_captcha" value="false">
+  <button class="btn" type="submit">Send Message</button>
   </form>
+  
 </section>
 
 <footer>
