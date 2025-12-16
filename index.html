@@ -1,69 +1,346 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio | Divyanshu</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | Divyanshu</title>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="Style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0f19;
+  --card:#111827;
+  --accent:#f97316;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+
+/* NAVBAR */
+nav{
+  position:fixed;
+  top:18px;
+  left:24px;
+  padding:8px 20px;
+  border-radius:28px;
+  background:rgba(17,24,39,0.85);
+  backdrop-filter:blur(8px);
+  box-shadow:0 0 16px rgba(249,115,22,0.35);
+  z-index:9999;
+}
+nav span{
+  color:var(--accent);
+  font-weight:600;
+  font-size:16px;
+}
+
+/* HEADER */
+header{
+  padding:120px 10% 80px;
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:40px;
+  align-items:center;
+}
+
+header h1{
+  font-size:42px;
+}
+header h1 span{
+  color:var(--accent);
+}
+
+header p{
+  color:var(--muted);
+  margin:18px 0;
+}
+
+.status{
+  display:inline-block;
+  margin-bottom:12px;
+  padding:6px 14px;
+  border-radius:20px;
+  font-size:13px;
+  background:rgba(34,197,94,0.15);
+  color:#22c55e;
+}
+
+.btn{
+  display:inline-block;
+  padding:12px 26px;
+  border-radius:30px;
+  background:var(--accent);
+  color:#000;
+  font-weight:600;
+}
+
+/* AVATAR */
+.avatar{
+  width:250px;
+  height:250px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(249,115,22,0.35), transparent 65%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.avatar img{
+  width:195px;
+  height:195px;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+/* SECTION */
+section{
+  padding:70px 10%;
+}
+
+.title{
+  text-align:center;
+  margin-bottom:45px;
+}
+.title h2{
+  font-size:32px;
+}
+.title span{
+  color:var(--accent);
+}
+
+/* WORK TAGS */
+.tags{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin-bottom:35px;
+  flex-wrap:wrap;
+}
+.tag{
+  padding:6px 14px;
+  border-radius:18px;
+  font-size:13px;
+  background:#1f2933;
+  color:var(--muted);
+}
+
+/* SERVICE BOXES */
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:24px;
+}
+
+.service{
+  background:var(--card);
+  padding:26px;
+  border-radius:18px;
+  text-align:center;
+  animation:float 6s ease-in-out infinite;
+}
+
+.service:nth-child(2){animation-delay:1s}
+.service:nth-child(3){animation-delay:2s}
+.service:nth-child(4){animation-delay:3s}
+.service:nth-child(5){animation-delay:4s}
+
+.service h3{
+  font-size:16px;
+  margin-bottom:8px;
+}
+.service p{
+  font-size:13px;
+  color:var(--muted);
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+}
+
+/* CONTACT */
+.contact-box{
+  max-width:520px;
+  margin:auto;
+  background:var(--card);
+  padding:36px;
+  border-radius:22px;
+  text-align:center;
+}
+
+.contact-box p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* UPDATED EMAIL BUTTON */
+.email-btn{
+  display:inline-block;
+  margin-top:16px;
+  padding:14px 28px;
+  border-radius:30px;
+  background: linear-gradient(45deg, #f97316, #facc15);
+  color:#000;
+  font-weight:600;
+  font-size:15px;
+  text-decoration:none;
+  box-shadow:0 0 12px rgba(250,205,21,0.5), inset 0 0 6px rgba(250,205,21,0.3);
+  animation: emailBounce 3s ease-in-out infinite, emailGlow 4s ease-in-out infinite;
+}
+
+@keyframes emailBounce{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-5px);}
+}
+
+@keyframes emailGlow{
+  0%,100%{
+    box-shadow:0 0 12px rgba(250,205,21,0.5), inset 0 0 6px rgba(250,205,21,0.3);
+  }
+  50%{
+    box-shadow:0 0 18px rgba(250,205,21,0.7), inset 0 0 10px rgba(250,205,21,0.5);
+  }
+}
+
+.response{
+  margin-top:10px;
+  font-size:12px;
+  color:var(--muted);
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  color:var(--muted);
+  border-top:1px solid #1f2933;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  header{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+  .avatar{
+    margin:auto;
+  }
+}
+</style>
 </head>
+
 <body>
 
-<header class="hero">
-  <div class="hero-text">
+<nav>
+  <span>Portfolio</span>
+</nav>
+
+<header>
+  <div>
+    <div class="status">🟢 Available for new projects</div>
     <h1>Hi, I'm <span>Divyanshu</span></h1>
-    <p>Web Developer focused on building clean, fast and responsive websites.</p>
-    <a href="#contact" class="btn">Hire Me</a>
+    <p>I create clean, fast and professional websites focused on real results.</p>
+    <a href="#contact" class="btn">Contact Me</a>
   </div>
 
   <div class="avatar">
-    <img src="images/portfolio.png" alt="Profile">
+    <img src="https://via.placeholder.com/300" alt="Profile">
   </div>
 </header>
 
 <section>
-  <h2 class="title">My <span>Projects</span></h2>
+  <div class="title">
+    <h2>What I <span>Provide</span></h2>
+  </div>
 
-  <div class="projects">
-    <div class="project">
-      <img src="311f9ecfe0a667aece081fa79dcb5ffa.jpg" 
-      <p>Portfolio Website</p>
+  <div class="tags">
+    <div class="tag">Personal Websites</div>
+    <div class="tag">Business Websites</div>
+    <div class="tag">Landing Pages</div>
+  </div>
+
+  <div class="services">
+    <div class="service">
+      <h3>Responsive Design</h3>
+      <p>Mobile & desktop friendly layouts</p>
     </div>
-
-    <div class="project">
-      <img src="business-company-landing-page-template_23-2148924994.jpg" alt="Business Landing Page">
-      <p>Business Landing Page</p>
+    <div class="service">
+      <h3>Clean UI</h3>
+      <p>Modern and professional design</p>
     </div>
+    <div class="service">
+      <h3>Fast Performance</h3>
+      <p>Optimized for smooth loading</p>
+    </div>
+    <div class="service">
+      <h3>Landing Pages</h3>
+      <p>Focused on conversions</p>
+    </div>
+    <div class="service">
+      <h3>Website Fixing</h3>
+      <p>Bugs & layout issues resolved</p>
+    </div>
+  </div>
+</section>
 
-    <div class="project">
-      <img src="ecommerce-design-580x435.jpg" alt="E-commerce UI">
-      <p>E-commerce UI</p>
+<!-- NEW SECTION: Why Hire Me -->
+<section>
+  <div class="title">
+    <h2>Why <span>Hire Me</span></h2>
+  </div>
+
+  <div class="services">
+    <div class="service">
+      <h3>Expertise & Experience</h3>
+      <p>Years of hands-on experience building responsive, high-performance websites that deliver real results.</p>
+    </div>
+    <div class="service">
+      <h3>Clean & Modern Design</h3>
+      <p>Professional, user-friendly interfaces that impress visitors and increase engagement.</p>
+    </div>
+    <div class="service">
+      <h3>Fast & Reliable</h3>
+      <p>Websites optimized for speed, reliability, and smooth performance across all devices.</p>
+    </div>
+    <div class="service">
+      <h3>Client-Centric Approach</h3>
+      <p>I understand your goals and deliver solutions that match your business needs perfectly.</p>
     </div>
   </div>
 </section>
 
 <section id="contact">
-  <h2 class="title">Contact <span>Me</span></h2>
+  <div class="title">
+    <h2>Connect <span>With Me</span></h2>
+  </div>
 
-  <form action="https://formsubmit.co/divyanshuteli@gmail.com" method="POST">
-  <input type="text" name="name" placeholder="Your Name" required>
-  <input type="email" name="email" placeholder="Your Email" required>
-  <textarea name="message" placeholder="Your Message" required></textarea>
+  <div class="contact-box">
+    <p>Send me a message for your project inquiries</p>
 
-  <input type="hidden" name="_captcha" value="false">
-  <button class="btn" type="submit">Send Message</button>
-  </form>
-  
+    <a class="email-btn"
+       href="mailto:divyanshuteli@gmail.com?subject=Website%20Development%20Inquiry">
+       📧 Email Divyanshu
+    </a>
+
+    <div class="response">Usually replies within 24 hours</div>
+  </div>
 </section>
 
 <footer>
   © 2025 Divyanshu. All Rights Reserved.
 </footer>
 
-<script src="script.js"></script>
 </body>
 </html>
